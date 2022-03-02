@@ -4,22 +4,22 @@ axios through tor network
 
 ## Installing
 
-Using npm:
+Using npm with this fork from GitHub:
 
 ```
-$ npm install tor-axios
+npm install git://github.com/SpindlesDev/tor-axios
 ```
 
 ## example
 
 ```js
-const tor_axios = require('tor-axios');
+const tor_axios = require("tor-axios");
 const tor = tor_axios.torSetup({
-	ip: 'localhost',
+	ip: "localhost",
 	port: 9050,
-})
+});
 
-let response = await tor.get('http://api.ipify.org');
+let response = await tor.get("http://api.ipify.org");
 let ip = response.data;
 console.log(ip);
 ```
@@ -27,25 +27,23 @@ console.log(ip);
 or
 
 ```js
-const tor_axios = require('tor-axios');
-const axios = require('axios');
+const tor_axios = require("tor-axios");
+const axios = require("axios");
 
 const tor = tor_axios.torSetup({
-	ip: 'localhost',
+	ip: "localhost",
 	port: 9050,
-})
+});
 
 const inst = axios.create({
 	httpAgent: tor.httpAgent(),
 	httpsagent: tor.httpsAgent(),
 });
 
-let response = await inst.get('http://api.ipify.org');
+let response = await inst.get("http://api.ipify.org");
 let ip = response.data;
 console.log(ip);
 ```
-
-
 
 ## Requirements
 
@@ -81,7 +79,7 @@ Jul 21 13:08:50.363 [notice] Tor can't help you if you use it wrong! Learn how t
 Copy the generated hash password and add it to your torrc file
 
 ```
-# sample torrc file 
+# sample torrc file
 ControlPort 9051
 HashedControlPassword 16:AEBC98A6777A318660659EC88648EF43EDACF4C20D564B20FF244E81DF
 ```
@@ -89,21 +87,21 @@ HashedControlPassword 16:AEBC98A6777A318660659EC88648EF43EDACF4C20D564B20FF244E8
 After Example,
 
 ```js
-const tor_axios = require('tor-axios');
+const tor_axios = require("tor-axios");
 const tor = tor_axios.torSetup({
-	ip: 'localhost',
+	ip: "localhost",
 	port: 9050,
-	controlPort: '9051',
-    controlPassword: 'giraffe',
-})
+	controlPort: "9051",
+	controlPassword: "giraffe",
+});
 
-let response = await tor.get('http://api.ipify.org');
+let response = await tor.get("http://api.ipify.org");
 let ip = response.data;
 console.log(ip);
 
 await tor.torNewSession(); //change tor ip
 
-response = await tor.get('http://api.ipify.org');
+response = await tor.get("http://api.ipify.org");
 ip = response.data;
 console.log(ip);
 ```

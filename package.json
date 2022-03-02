@@ -1,13 +1,13 @@
 {
   "name": "tor-axios",
-  "version": "1.0.9",
+  "version": "1.1.0",
   "description": "use axios with tor",
   "main": "index.js",
   "directories": {
     "test": "test"
   },
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "*",
     "socks-proxy-agent": "^4.0.2"
   },
   "devDependencies": {
@@ -18,8 +18,12 @@
   },
   "author": "pelogvc",
   "license": "MIT",
-  "repository": {
+  "originalRepository": {
     "type": "git",
     "url": "https://github.com/pelogvc/tor-axios"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SpindlesDev/tor-axios"
   }
 }
